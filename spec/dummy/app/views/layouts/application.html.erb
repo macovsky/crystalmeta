@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= meta_tag :head %></title>
+  <%= meta_tags(/:/) %>
+</head>
+<body>
+  <%= yield %>
+  <%= debug meta.send(:options) %>
+</body>
+</html>

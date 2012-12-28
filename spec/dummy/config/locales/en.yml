@@ -1,0 +1,18 @@
+en:
+  meta:
+    _defaults:
+      og:site_name: IMDb
+      og:title: IMDb - Movies, TV and Celebrities
+      og:description: 'IMDb, the world`s most popular and authoritative source for movie, TV and celebrity content.'
+      og:image: imdb.jpg
+      og:type: article
+      fb:app_id: 115109575169727
+
+    movies:
+      _defaults:
+        og:type: video.movie
+        head: Movies on IMDb
+
+      show:
+        head: '%{og:title} - %{og:site_name}'
+        og:image: rock.jpg
