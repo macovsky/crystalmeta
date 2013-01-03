@@ -1,3 +1,7 @@
+### 0.9.2 2013-01-02
+
+* Ignore `Gemfile.lock`
+
 ### 0.9.1 2013-01-02
 
 * Ignore `.rspec`
