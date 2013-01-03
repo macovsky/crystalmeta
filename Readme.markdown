@@ -1,4 +1,4 @@
-**Crystalmeta helps you control meta tags through I18n and/or manually. It plays well with [OpenGraph](http://ogp.me/).**
+**Crystalmeta helps you control meta tags through I18n and/or manually. It plays well with [OpenGraph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/docs/cards).**
 
 It gives you 3 helpers:
 
@@ -32,7 +32,7 @@ Returns value for a certain tag:
 Returns all meta tags which names match the pattern. Under the hoods it uses the three-qual to pattern match (like in `Enumerable#grep`).
 
 ```erb
-<%= meta_tags %>
+<%= meta_tags /^og:/ %>
 ```
 
 displays in this case:
@@ -102,11 +102,13 @@ You may wish to use a `Proc` in some cases:
 You can interpolate meta tags like this:
 
 ```erb
-<% meta({
+<% 
+meta({
   "og:title"     => "The Rock (1996)",
   "og:site_name" => "IMDb",
   "head"         => "%{og:title} — %{og:site_name}"
-}) %>
+}) 
+%>
 ```
 
 `meta_tag :head` will return `"The Rock (1996) — IMDb"`.

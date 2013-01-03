@@ -26,7 +26,10 @@ module Crystal
     end
 
     def default_options
-      HashWithStringifyKeys.new(:'og:url' => url)
+      HashWithStringifyKeys.new(
+        :'og:url'      => url,
+        :'twitter:url' => url
+      )
     end
 
     def url
