@@ -7,8 +7,8 @@ module Crystal
     private
 
     def interpolate_tag!(tag)
-      if tag.value.respond_to?(:gsub!)
-        tag.value.gsub!(/%\{([\w:-]+)\}/) do |match|
+      if tag.value.respond_to?(:gsub)
+        tag.value = tag.value.gsub(/%\{([\w:-]+)\}/) do |match|
           interpolate_tag!(tags.find_by_name($1))
         end
       end

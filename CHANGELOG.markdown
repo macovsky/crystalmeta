@@ -1,3 +1,7 @@
+### 0.9.3 2013-02-03
+
+* Fix interpolation bug
+
 ### 0.9.2 2013-01-02
 
 * Ignore `Gemfile.lock`
