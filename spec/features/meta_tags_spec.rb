@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe 'meta tags' do
   def meta_tags(pattern = //)
-    all('meta').select{|meta| pattern === meta[:property]}
+    all('meta').select{|meta| pattern === meta[:property] || pattern === meta[:name] }
   end
 
   def value_for(pattern = //)
-    meta_tags(pattern).first[:value]
+    meta_tags(pattern).first[:content]
   end
 
   def title
@@ -24,6 +24,10 @@ describe 'meta tags' do
 
     it 'include og:image from locale' do
       value_for('og:image').should == '/images/rock.jpg'
+    end
+
+    it 'include og:image from locale' do
+      value_for('twitter:card').should == 'summary'
     end
 
     it 'include og:type from controller defaults' do

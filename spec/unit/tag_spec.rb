@@ -4,8 +4,14 @@ describe Crystal::Tag do
   subject { Crystal::Tag.new('og:title', 'Caesar must die') }
   its(:name) {should == 'og:title'}
   its(:value) {should == 'Caesar must die'}
+  its(:name_key) { should == :property }
 
-  context '#value_for_context' do
+  context 'for twitter' do
+    subject { Crystal::Tag.new('twitter:title', 'Caesar must die') }
+    its(:name_key) { should == :name  }
+  end
+
+  describe '#value_for_context' do
     let(:context) { double }
 
     it 'returns asset path if asset' do

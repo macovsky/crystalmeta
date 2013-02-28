@@ -1,5 +1,9 @@
 module Crystal
   class Tag < Struct.new(:name, :value)
+    def name_key
+      name.starts_with?('og:') ? :property : :name
+    end
+
     def value_for_context(context)
       case
       when asset?
