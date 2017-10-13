@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe 'meta tags' do
+RSpec.describe 'meta tags', type: :feature do
   def meta_tags(pattern = //)
-    all('meta').select{|meta| pattern === meta[:property] || pattern === meta[:name] }
+    all(:css, 'meta', visible: :hidden).select{|meta| pattern === meta[:property] || pattern === meta[:name] }
   end
 
   def value_for(pattern = //)

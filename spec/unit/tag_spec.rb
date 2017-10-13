@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Crystal::Tag do
+RSpec.describe Crystal::Tag do
   subject { Crystal::Tag.new('og:title', 'Caesar must die') }
   its(:name) {should == 'og:title'}
   its(:value) {should == 'Caesar must die'}
@@ -31,7 +31,7 @@ describe Crystal::Tag do
 
     it 'returns original value otherwise' do
       tag('og:image:width', 100).value_for_context(context).should == 100
-      tag('published', true).value_for_context(context).should be_true
+      tag('published', true).value_for_context(context).should be true
     end
   end
 end
