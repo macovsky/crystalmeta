@@ -19,6 +19,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'rails', '>= 5.1.0'
   gem.add_development_dependency 'rspec-rails', '~> 3.6.0'
-  gem.add_development_dependency 'rspec-its', '~> 1.2.0'
   gem.add_development_dependency 'capybara', '~> 2.15.4'
 end
