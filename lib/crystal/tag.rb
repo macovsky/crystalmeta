@@ -24,7 +24,7 @@ module Crystal
     end
 
     def asset_path_method
-      "#{asset?}_path"
+      "#{asset?}_url"
     end
   end
 end
