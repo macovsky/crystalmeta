@@ -28,8 +28,8 @@ RSpec.describe Crystal::Tag do
 
     it 'returns asset path if asset' do
       image = '1.png'
-      asset_path = "/assets/#{image}"
-      allow(context).to receive('image_path').with(image).and_return(asset_path)
+      asset_path = "http://www.example.com/assets/#{image}"
+      allow(context).to receive('image_url').with(image).and_return(asset_path)
       expect(tag('og:image', image).value_for_context(context)).to eq asset_path
     end
 

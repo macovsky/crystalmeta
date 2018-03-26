@@ -23,7 +23,7 @@ RSpec.describe 'meta tags', type: :feature do
     end
 
     it 'include og:image from locale' do
-      expect(value_for('og:image')).to eq '/images/rock.jpg'
+      expect(value_for('og:image')).to eq 'http://www.example.com/images/rock.jpg'
     end
 
     it 'include og:image from locale' do
