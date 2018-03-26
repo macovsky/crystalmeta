@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe 'meta tags' do
+RSpec.describe 'meta tags', type: :feature do
   def meta_tags(pattern = //)
-    all('meta').select{|meta| pattern === meta[:property] || pattern === meta[:name] }
+    all(:css, 'meta', visible: :hidden).select{|meta| pattern === meta[:property] || pattern === meta[:name] }
   end
 
   def value_for(pattern = //)
@@ -19,23 +19,23 @@ describe 'meta tags' do
     end
 
     it 'include og:title from controller' do
-      value_for('og:title').should == 'The Rock (1996)'
+      expect(value_for('og:title')).to eq 'The Rock (1996)'
     end
 
     it 'include og:image from locale' do
-      value_for('og:image').should == '/images/rock.jpg'
+      expect(value_for('og:image')).to eq '/images/rock.jpg'
     end
 
     it 'include og:image from locale' do
-      value_for('twitter:card').should == 'summary'
+      expect(value_for('twitter:card')).to eq 'summary'
     end
 
     it 'include og:type from controller defaults' do
-      value_for('og:type').should == 'video.movie'
+      expect(value_for('og:type')).to eq 'video.movie'
     end
 
-    it 'include title with interpolation' do
-      title.should == 'The Rock (1996) - IMDb'
+    it 'include title expect(with interpolation' do
+      expect(title).to eq 'The Rock (1996) - IMDb'
     end
   end
 
@@ -45,12 +45,12 @@ describe 'meta tags' do
     end
 
     it 'include og:title & og:type from views' do
-      value_for('og:title').should == 'Movies'
-      value_for('og:type').should == 'article'
+      expect(value_for('og:title')).to eq 'Movies'
+      expect(value_for('og:type')).to eq 'article'
     end
 
     it 'include default title' do
-      title.should == 'Movies on IMDb'
+      expect(title).to eq 'Movies on IMDb'
     end
   end
 end

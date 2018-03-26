@@ -1,7 +1,7 @@
 module Crystal
   module ControllerExtensions
     def self.included(base)
-      base.before_filter :_set_meta
+      base.before_action :_set_meta
       base.helper_method :meta
     end
 

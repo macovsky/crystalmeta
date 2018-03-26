@@ -3,7 +3,7 @@ require 'rails/railtie'
 module Crystal
   class Railtie < Rails::Railtie
     initializer 'crystalmeta.setup_action_controller' do |app|
-      ActiveSupport.on_load :action_controller do
+      ActiveSupport.on_load :action_controller_base do
         Crystal.setup_action_controller self
       end
     end

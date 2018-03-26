@@ -9,7 +9,7 @@ describe Crystal::Meta do
     it 'stringifies keys' do
       subject.store :title => 'something'
       subject.store :head => 'something else'
-      options.should == {'title' => 'something', 'head' => 'something else'}
+      expect(options).to eq Hash['title' => 'something', 'head' => 'something else']
     end
 
     it 'merges options deeply' do
@@ -28,14 +28,14 @@ describe Crystal::Meta do
         :"fb:admins" => '322132'
       })
 
-      options.should == {
+      expect(options).to eq Hash[
         'og' => {
           'title' => 'og title',
           'site_name' => 'site name 2',
           'url' => 'something',
         },
         'fb:admins' => '322132'
-      }
+      ]
     end
   end
 end
